@@ -66,13 +66,13 @@ module SmartyStreets
     @@auth_token
   end
 
-  # Set the API url.
+  # Set the Street Address API url.
   #
   # This method can only be called once, but is not required.
   #
   # @param [String] api_url the API url
   # @return nil
-  def self.set_api_url(api_url)
+  def self.set_street_address_api_url(api_url)
     @@lock.synchronize do
       @@api_url = check_type(api_url, String)
       check_argument(!@@api_url.empty?)
@@ -83,7 +83,28 @@ module SmartyStreets
     end
   end
 
-  def self.api_url
+  def self.street_address_api_url
     defined?(@@api_url) ? @@api_url : 'https://api.smartystreets.com'
+  end
+
+  # Set the Zipcode API url.
+  #
+  # This method can only be called once, but is not required.
+  #
+  # @param [String] api_url the API url
+  # @return nil
+  def self.set_zipcode_api_url(api_url)
+    @@lock.synchronize do
+      @@api_url = check_type(api_url, String)
+      check_argument(!@@api_url.empty?)
+      class << self
+        remove_method :set_api_url
+      end
+      nil
+    end
+  end
+
+  def self.zipcode_api_url
+    defined?(@@api_url) ? @@api_url : 'https://us-zipcode.api.smartystreets.com'
   end
 end
