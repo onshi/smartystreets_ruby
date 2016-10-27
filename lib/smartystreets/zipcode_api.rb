@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 module SmartyStreets
-  
+
   # Exposes calls to the SmartyStreets Zipcode API.
   #
   # @author Peter Edge (peter.edge@gmail.com)
@@ -28,7 +28,7 @@ module SmartyStreets
     end
 
     @@request_url = LazyLoader.create_lazy_loader do
-      SmartyStreets.api_url + '/zipcode'
+      SmartyStreets.zipcode_api_url + '/lookup'
     end
 
     def self.request_url

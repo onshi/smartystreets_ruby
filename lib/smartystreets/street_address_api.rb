@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 module SmartyStreets
-  
+
   # Exposes calls to the SmartyStreets Street Address API.
   #
   # @author Peter Edge (peter.edge@gmail.com)
@@ -29,7 +29,7 @@ module SmartyStreets
 
 
     @@request_url = LazyLoader.create_lazy_loader do
-      SmartyStreets.api_url + '/street-address'
+      SmartyStreets.street_address_api_url + '/street-address'
     end
 
     def self.request_url
