@@ -1,0 +1,10 @@
+*.gem
+.bundle
+coverage
+tmp
+
+.yardoc
+_yardoc
+doc/
+
+tags
